@@ -19,11 +19,13 @@
     "#schemas": "./src/api/schemas/index.js",
     "#controllers": "./src/api/controllers/index.js",
     "#middlewares": "./src/api/middlewares/index.js",
-    "#config": "./src/config/config.js"
+    "#config": "./src/config/config.js",
+    "#helpers": "./src/api/helpers/index.js"
   },
   "author": "jeresc",
   "license": "MIT",
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "morgan": "^1.10.0",
