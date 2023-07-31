@@ -1,1 +1,2 @@
-export * from "./UserControllers/index.js"
+export * from "./VideogameControllers/index.js"
+export * from "./GenreControllers/index.js"

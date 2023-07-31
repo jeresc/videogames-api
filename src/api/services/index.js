@@ -1,1 +1,2 @@
-export * from "./UsersServices/index.js"
+export * from "./VideogamesServices/index.js";
+export * from "./GenresServices/index.js"
