@@ -14,8 +14,8 @@ app.use(express.json())
 
 routes(app)
 
-// app.use(logErrors)
-// app.use(ormErrorHandler)
-// app.use(errorHandler)
+app.use(logErrors)
+app.use(ormErrorHandler)
+app.use(errorHandler)
 
 export default app
