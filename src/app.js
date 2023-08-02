@@ -9,7 +9,7 @@ const app = express()
 const whitelist = ["https://videogames-app-jeresc.vercel.app/"]
 const options = {
   origin: (origin, callback) => {
-    if (whitelist.includes(origin) || !origin) {
+    if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
@@ -18,8 +18,8 @@ const options = {
 }
 
 app.use(morgan('dev'))
-app.use(cors(options))
 app.use(express.json())
+app.use(cors(options))
 
 routes(app)
 
