@@ -1,4 +1,5 @@
 import config from '#config';
+import fetch from 'node-fetch';
 import { sequelize, validateUuid } from '#helpers';
 import { adaptVideogame } from '#adapters';
 const { models } = sequelize;

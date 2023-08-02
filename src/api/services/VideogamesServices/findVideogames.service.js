@@ -1,4 +1,5 @@
 import config from '#config';
+import fetch from 'node-fetch';
 import { sequelize } from '#helpers';
 import { adaptVideogame } from '#adapters';
 import { Op } from 'sequelize';

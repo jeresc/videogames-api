@@ -1,4 +1,5 @@
 import config from '#config';
+import fetch from 'node-fetch';
 import { sequelize } from '#helpers';
 import { adaptGenre } from '#adapters';
 const { models } = sequelize;
