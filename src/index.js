@@ -6,5 +6,5 @@ app.listen(config.port, async () => {
   console.log(`[sv] Listening on port ${config.port}`);
   await sequelize.authenticate();
   console.log('[db] Connection established succesfully.');
-  await sequelize.sync({ force: true })
+  await sequelize.sync({ alter: true })
 });
