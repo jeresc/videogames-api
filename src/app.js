@@ -6,10 +6,19 @@ import { logErrors, errorHandler, ormErrorHandler } from "#middlewares";
 
 const app = express()
 
-// const whitelist = ["http://localhost:3000", "https://videogames-app-jeresc.vercel.app/"]
+const whitelist = ["https://videogames-app-jeresc.vercel.app/"]
+const options = {
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin) || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
 
 app.use(morgan('dev'))
-app.use(cors())
+app.use(cors(options))
 app.use(express.json())
 
 routes(app)
