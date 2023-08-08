@@ -19,7 +19,7 @@ export const VideogameGenreSchema = {
       key: 'id',
     },
     onUpdate: 'CASCADE',
-    onDelete: 'SET NULL',
+    onDelete: 'CASCADE',
   },
   genreId: {
     field: 'genre_id',
@@ -30,7 +30,7 @@ export const VideogameGenreSchema = {
       key: 'id',
     },
     onUpdate: 'CASCADE',
-    onDelete: 'SET NULL',
+    onDelete: 'CASCADE',
   },
 };
 

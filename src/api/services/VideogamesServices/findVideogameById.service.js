@@ -9,8 +9,14 @@ export async function findVideogameById(id) {
     throw new Error('ID is required');
   }
 
+  const options = {
+    include: [
+      { model: models.Genre, as: 'genres', through: { attributes: [] } },
+    ],
+  };
+
   if (validateUuid(id)) {
-    const dbVideogame = await models.Videogame.findByPk(id);
+    const dbVideogame = await models.Videogame.findByPk(id, options);
     return dbVideogame;
   } else {
     const apiVideogame = await fetch(

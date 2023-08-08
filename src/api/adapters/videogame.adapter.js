@@ -1,11 +1,13 @@
 export const adaptVideogame = (videogame) => {
+try {
   const platforms = videogame.platforms.map(object => object.platform.name);
-  const genres = videogame.genres.map(genre => {
+  const image = videogame?.background_image?.replace("/media/", "/media/crop/600/400/")
+  const genres = videogame?.genres?.map(genre => {
     return {
       id: genre.id,
       name: genre.name,
     }
-  });
+  })
 
   return {
     id: videogame.id,
@@ -13,8 +15,19 @@ export const adaptVideogame = (videogame) => {
     description: videogame.description_raw,
     platforms,
     released: videogame.released,
-    image: videogame.background_image,
     rating: videogame.rating,
-    genres,
+    image: image,
+    genres: genres,
+  }
+  } catch (error) {
+    console.log(videogame)
+    return {
+      id: videogame.id,
+      name: videogame.name,
+      rating: videogame.rating,
+      released: videogame.released,
+      platforms: [],
+      genres: [],
+    }
   }
 }

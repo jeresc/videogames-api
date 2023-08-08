@@ -6,7 +6,7 @@ import { logErrors, errorHandler, ormErrorHandler } from "#middlewares";
 
 const app = express()
 
-const whitelist = ["https://videogames-app-jeresc.vercel.app/"]
+const whitelist = ["https://videogames-app-jeresc.vercel.app/"];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
@@ -19,7 +19,7 @@ const options = {
 
 app.use(morgan('dev'))
 app.use(express.json())
-app.use(cors(options))
+app.use(cors())
 
 routes(app)
 
