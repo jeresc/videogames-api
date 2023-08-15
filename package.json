@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles",
+    "start:test": "NODE_ENV=test node src/index.js",
     "dev": "nodemon -L -q",
     "migrations:generate": "sequelize-cli migration:generate --name",
     "migrations:run": "sequelize-cli db:migrate",

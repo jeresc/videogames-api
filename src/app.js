@@ -19,7 +19,7 @@ const options = {
 
 app.use(morgan('dev'))
 app.use(express.json())
-app.use(cors())
+app.use(cors(options))
 
 routes(app)
 

@@ -5,8 +5,11 @@ export const getVideogames = async (req, res, next) => {
     const filters = req.query
     const videogames = await findVideogames(filters);
 
-    if (!videogames.length) {
-      return res.status(200).json([]);
+    if (!videogames.results.length) {
+      return res.status(200).json({
+        count: 0,
+        results: []
+      });
     }
 
     res.status(200).json(videogames);
