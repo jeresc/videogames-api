@@ -13,7 +13,7 @@ export const VideogameSchema = {
     allowNull: false,
   },
   description: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(700),
     allowNull: false,
   },
   platforms: {

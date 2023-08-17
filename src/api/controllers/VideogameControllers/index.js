@@ -1,3 +1,5 @@
 export * from "./getVideogames.controllers.js"
 export * from "./getVideogameById.controller.js"
 export * from "./postVideogame.controller.js"
+export * from "./deleteVideogame.controller.js"
+export * from "./patchVideogame.controller.js"

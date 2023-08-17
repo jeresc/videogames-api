@@ -1,6 +1,6 @@
 export const adaptVideogame = (videogame) => {
 try {
-  const platforms = videogame.platforms.map(object => object.platform.name);
+  const platforms = videogame.parent_platforms.map(object => object.platform.name);
   const image = videogame?.background_image?.replace("/media/", "/media/crop/600/400/")
   const genres = videogame?.genres?.map(genre => {
     return {

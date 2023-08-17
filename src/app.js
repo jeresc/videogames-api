@@ -2,11 +2,15 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import routes from "#routes"
+import passport from "#auth"
+import cookieParser from 'cookie-parser';
+import config from "#config";
 import { logErrors, errorHandler, ormErrorHandler } from "#middlewares";
 
 const app = express()
 
-const whitelist = ["https://videogames-app-jeresc.vercel.app"];
+const whitelist = config.nodeEnv === "production" ? ["https://videogames-app-jeresc.vercel.app"] : ["http://localhost:5173"]
+
 const options = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
@@ -14,14 +18,18 @@ const options = {
     } else {
       callback(new Error('Not allowed by CORS'))
     }
-  }
+  },
+  credentials: true
 }
+app.use(cors(options))
 
 app.use(morgan('dev'))
 app.use(express.json())
-app.use(cors(options))
+app.use(cookieParser())
 
 routes(app)
+
+app.use(passport.initialize())
 
 app.use(logErrors)
 app.use(ormErrorHandler)

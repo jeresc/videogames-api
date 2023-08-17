@@ -8,11 +8,12 @@ const agent = session(app);
 const correct = {
   name: 'GTA Argentina Edition',
   description: 'A good game made in Argentina, tierra de Maradona',
-  platforms: ['PS3', 'PS4'],
+  platforms: ['PlayStation'],
   image:
     'http://3.bp.blogspot.com/_o6PeYNxMNQo/TDypRRCrxBI/AAAAAAAAACE/rEc3a9qan8w/w1200-h630-p-k-no-nu/123750910poq41.jpg',
   released: '2013-09-17',
   rating: 5.0,
+  genres: [10, 2]
 };
 
 describe('Routes', () => {
@@ -35,8 +36,8 @@ describe('Routes', () => {
     });
 
     test('should get no results for a non-existent name', async () => {
-      const response = await agent.get('/api/videogames?name=yyy').send();
-      expect(response.body).toEqual([]);
+      const response = await agent.get(`/api/videogames?name=${Math.random() * 5000}`).send();
+      expect(response.body.results).toEqual([]);
     });
   });
 
