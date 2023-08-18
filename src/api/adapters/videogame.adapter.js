@@ -10,7 +10,7 @@ try {
   })
 
   return {
-    id: videogame.id,
+    id: videogame?.id,
     name: videogame.name,
     description: videogame.description_raw,
     platforms,
